@@ -11,6 +11,12 @@ const CreateBooks = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const handleSaveBook = (e) => {
+
+    if(!title.trim() || !author.trim() || !publishYear) {
+      alert("Please fill in all fields.");
+      return;
+    }
+    
     const data = {
       title,
       author,

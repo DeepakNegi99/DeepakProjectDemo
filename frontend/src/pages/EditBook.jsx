@@ -16,7 +16,7 @@ const EditBook = () => {
     axios
       .get(`http://localhost:5000/books/${id}`)
       .then((response) => {
-        const book = response.data;
+        const book = response.data.data;
         setTitle(book.title);
         setAuthor(book.author);
         setPublishYear(book.publishYear);
@@ -61,9 +61,10 @@ const EditBook = () => {
           </label>
           <input
             type="text"
-            volume={title}
+            value={title}
             onChange={(e) => setTitle(e.target.value)}
             className="border-2 border-gray-500 px-4 py-2 w-full"
+            
           />
         </div>
         <div className="my-4">
@@ -72,7 +73,7 @@ const EditBook = () => {
           </label>
           <input
             type="text"
-            volume={author}
+            value={author}
             onChange={(e) => setAuthor(e.target.value)}
             className="border-2 border-gray-500 px-4 py-2 w-full"
           />
@@ -83,7 +84,7 @@ const EditBook = () => {
           </label>
           <input
             type="number"
-            volume={publishYear}
+            value={publishYear}
             onChange={(e) => setPublishYear(e.target.value)}
             className="border-2 border-gray-500 px-4 py-2 w-full"
           />

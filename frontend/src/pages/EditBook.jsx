@@ -29,7 +29,7 @@ const EditBook = () => {
       });
   }, [id]);
 
-  const handleSaveBook = (e) => {
+  const handleSaveBook = () => {
     const data = {
       title,
       author,

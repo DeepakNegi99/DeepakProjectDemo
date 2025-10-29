@@ -62,15 +62,18 @@ Router.post('/', async (request, response) => {
 //   }
 // });
 
-Route.get('/', async (request, response) => {
+Router.get('/', async (request, response) => {
   try{
     const bookAll = await Book.find({});
-    
+    return response.status(200).json({
+      count: bookAll.length,
+      data: bookAll
+    });
   }catch(error){
     console.error("Error is ", error);
-    return response.stattus(400).json({error: "Internal server error"});
+    return response.status(500).json({error: "Internal server error"});
   }
-)
+});
 // Route for updating a book
 Router.put('/:id', async (request, response) => {
   try {
